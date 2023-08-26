@@ -37,7 +37,7 @@ async function userSignin(req, res) {
                   .json(SuccessResponse);
     }
     catch (error) {
-          console.log(error);
+        //  console.log(error);
            ErrorResponse.error = error;
            return res
                   .status(error.statusCode)
@@ -52,7 +52,7 @@ async function userLogout(req,res){
        const response=await userService.userLogout(res);
            SuccessResponse.message="logout successfully"
             return res
-                  .status(StatusCode.CREATED)
+                  .status(StatusCode.OK)
                   .json(SuccessResponse);
     }
     catch (error) {

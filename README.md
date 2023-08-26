@@ -8,6 +8,8 @@
  - In the root directory create a `.env` file and add the following env variables
     ```
         PORT=<port number of your choice>
+        SALT_ROUNDS=8
+        SECRET_KEY='key'
     ```
     ex: 
     ```
@@ -19,23 +21,24 @@
     ```
  - give mysql user name password and db name inside config.json
 
- - to migrate all migaration folder and create table schema execute:
- ...
+ - to migrate all migaration folder and create table schema
+ execute
+  ```
     npx sequelize-cli db:migrate
- ...
+  ```
 
  - To run the server execute
  ```
  node --watch src/index.js
  ```
  - To check Api is working or not:
- ...
+ ```
  localhost:3000/api/v1/info
- ...
+ ```
 
  ### Api details:
  - for signup:
-   ...
+   ```
    POST
    http://localhost:3000/api/v1/user/signup
    
@@ -43,24 +46,46 @@
    {
     firstName:m,
     lastName:roy,
-    emai:
+    email:
     password:
    }
 
-   ....
+   RESPONSE:
+   {
+    "success": true,
+    "message": "successfully completed request",
+    "data": "firstName",
+    "error": {}
+    }
 
+   ```
    
-   - for signin:
-    ...
+
+- for signin:
+
+    ```
     POST
     http://localhost:3000/api/v1/user/signin
+
     inputfield:
    {
     emai:
     password:
    }
-   ...
-   - for signout
-   ...
-    GET
+
+   RES:
+   {
+    "success": true,
+    "message": "successfully completed request",
+    "data": "firstName",
+    "error": {}
+   }
+   ```
+   
+- for signout
+   ```
+   GET
+
     http://localhost:3000/api/v1/user/signout
+
+   ```
